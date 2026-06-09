@@ -77,7 +77,6 @@
   }
   .crest{ width:auto; display:block; color:currentColor; }
   .brand .crest{ height:30px; }
-  .footer-crest .crest{ height:54px; margin:0 auto 14px; }
   nav a{
     color:var(--on-nav); text-decoration:none; font-family:var(--mono); font-weight:600; font-size:.78rem;
     text-transform:uppercase; letter-spacing:.5px; padding:6px 11px; border-radius:4px;
@@ -149,16 +148,19 @@
   ul.clean li::before{ content:""; position:absolute; left:.2rem; top:.62em; width:.5rem; height:.5rem; background:var(--accent); transform:rotate(45deg); }
   .pill-list{ list-style:none; padding:0; margin:.8rem 0 0; display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; }
   .pill-list li{ font-family:var(--mono); border:2px solid var(--teal); color:var(--teal); border-radius:30px; padding:.25rem .9rem; font-weight:600; font-size:.82rem; }
+  .bullets{ padding-left:1.25rem; margin:.6rem 0; }
+  .bullets li{ margin:.4rem 0; }
+  .step-note{ color:var(--ink-soft); font-size:.88rem; font-weight:400; }
 
   .callout{ border:2px solid var(--ink); border-left:7px solid var(--accent); background:var(--accent-soft); color:var(--ink); padding:1rem 1.3rem; border-radius:0 10px 10px 0; margin:1.3rem 0; box-shadow:5px 5px 0 var(--shadow-col); }
   .callout strong{ color:var(--ink); font-weight:800; }
 
   /* ---------- Interactives ---------- */
   .tool{ background:var(--card); border:2px dashed var(--accent); border-radius:12px; padding:1.4rem 1.6rem; margin:1.5rem 0; }
-  .tool-tag{ display:inline-block; background:var(--accent); color:var(--on-accent); font-family:var(--mono); font-weight:600; font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; padding:.25rem .7rem; border-radius:6px; margin-bottom:.6rem; }
-  .tool h4{ text-align:left; margin-top:0; }
-  .tool label{ display:block; font-weight:700; margin:.9rem 0 .3rem; }
-  .tool label .hint{ display:block; font-weight:400; color:var(--ink-soft); font-size:.88rem; }
+  .tool-tag{ display:block; width:max-content; margin:0 auto .6rem; background:var(--accent); color:var(--on-accent); font-family:var(--mono); font-weight:600; font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; padding:.25rem .7rem; border-radius:6px; }
+  .tool h4{ text-align:center; margin-top:0; }
+  .tool label, .panel label{ display:block; font-weight:700; margin:.9rem 0 .3rem; }
+  label .hint{ display:block; font-weight:400; color:var(--ink-soft); font-size:.88rem; }
   textarea,input[type="text"]{
     width:100%; font-family:var(--body); font-size:1rem; color:var(--ink); background:var(--card);
     border:2px solid var(--ink); border-radius:8px; padding:.6rem .7rem;
@@ -198,12 +200,6 @@
 
   .saved-note{ font-size:.82rem; color:var(--ink-soft); margin-top:.6rem; min-height:1.1em; }
 
-  /* ---------- Footer ---------- */
-  footer{ padding:0 0 70px; text-align:center; color:var(--ink-soft); }
-  .footer-crest{ background:var(--nav); color:var(--on-nav); padding:42px 24px 38px; border-bottom:3px solid var(--shadow-col); }
-  .footer-crest .big{ font-family:var(--display); font-size:1.8rem; font-weight:800; color:var(--on-nav); margin:0; }
-  .footer-meta{ padding-top:26px; font-size:.86rem; }
-  .footer-meta a{ font-weight:600; }
 
   .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 
@@ -213,7 +209,7 @@
   }
   @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } *{ animation:none !important; transition:none !important; } }
   @media print{
-    nav,.a11y-toggle,.a11y-panel,.roadmap,.btn,.timer-row,.skip-link,.footer-crest{ display:none !important; }
+    nav,.a11y-toggle,.a11y-panel,.roadmap,.btn,.timer-row,.skip-link,#printPanel{ display:none !important; }
     :root{ --paper:#ffffff; --card:#ffffff; --ink:#000000; --ink-soft:#444444; --accent-soft:#ffffff; --line:#cccccc; --shadow-col:#cccccc; }
     body{ background:#fff; color:#000; background-image:none; }
     .panel,.card,.tool{ box-shadow:none; border-color:#000; }
@@ -271,7 +267,7 @@
   <div class="wrap">
     <div class="kicker">A Library Research Guide</div>
     <h1>Research Basics:<br>Getting Started</h1>
-    <p class="lead">Determine a research topic, choose a corresponding database, and work your way toward a question worth asking. A topic is only the starting point of an inquiry.</p>
+    <p class="lead">Select a topic, choose a database, and work your way toward a question worth asking!</p>
     <nav class="roadmap" aria-label="The trajectory">
       <a href="#topic"><span class="n">01</span><span class="t">Selecting a Topic</span><small>Who cares? EAT!</small></a>
       <a href="#database"><span class="n">02</span><span class="t">Choosing a Database</span><small>Read, rank, sign in</small></a>
@@ -287,7 +283,7 @@
   <!-- ============ SELECTING A TOPIC ============ -->
   <section id="topic">
     <h2>Selecting a Topic</h2>
-    <p class="sec-sub">What do you guys wanna talk about?</p>
+    <p class="sec-sub">What do you wanna talk about?</p>
 
     <div class="panel center">
       <p>A <strong>good research topic</strong> is a topic that <strong>actually interests you</strong>! Be honest with yourself and choose wisely!</p>
@@ -337,6 +333,10 @@
         <li><strong><span class="eat-i">A</span>ppeal:</strong> Why does this topic interest you?</li>
         <li><strong><span class="eat-i">T</span>imeline:</strong> How long are you willing to work on this topic?</li>
       </ul>
+      <label for="eatReply">Your responses
+        <span class="hint">Reply to each: expectations, appeal, timeline.</span>
+      </label>
+      <textarea id="eatReply" rows="4" data-key="gs_eat" placeholder="Expectations&hellip; Appeal&hellip; Timeline&hellip;"></textarea>
     </div>
 
     <div class="callout">
@@ -357,7 +357,7 @@
     <h3>Why use a database?</h3>
     <div class="duo">
       <div class="card"><span class="tag">Trustworthy</span><h4>Peer-reviewed</h4><p>Information from trusted sources and experts.</p></div>
-      <div class="card"><span class="tag">Private</span><h4>No data-harvesting</h4><p>No trackers, no algorithm, no nonsense.</p></div>
+      <div class="card"><span class="tag">Private</span><h4>No data-harvesting</h4><p>No trackers, no algorithm, no nonsense. (though some offer personalized curation!)</p></div>
       <div class="card"><span class="tag">Current</span><h4>Regular updates</h4><p>Databases keep up with rapidly changing fields.</p></div>
       <div class="card"><span class="tag">Selective</span><h4>Curated information</h4><p>Databases contain smaller quantities of high-quality content than other web-based sources.</p></div>
     </div>
@@ -371,7 +371,7 @@
 
     <div class="callout">
       <p><strong>Ready to dive in?</strong> Open the database portal, review the available databases, and rank the ones that fit your topic.</p>
-      <p style="margin-bottom:0;"><a href="https://mistertlibrary.github.io/librarylyceum/databases.html" target="_blank" rel="noopener noreferrer">Find a Database &rarr; Library Lyceum</a></p>
+      <h3 style="margin:.6rem 0 0;"><a href="https://mistertlibrary.github.io/librarylyceum/databases.html" target="_blank" rel="noopener noreferrer">Find a Database &rarr; Library Lyceum</a></h3>
     </div>
   </section>
 
@@ -383,7 +383,7 @@
     <div class="panel">
       <h4>Establishing a Baseline</h4>
       <p style="text-align:center;">Before you begin researching in earnest, you need to establish a baseline understanding of your subject. Are you already familiar with the basic facts, fundamental tenets, and broad contours of the field?</p>
-      <ul class="clean">
+      <ul class="bullets">
         <li>Can you share a summary of a historical period or event?</li>
         <li>Can you identify the major themes or preeminent literary devices of a fictional text?</li>
         <li>Can you explain a scientific principle to a peer?</li>
@@ -421,7 +421,7 @@
       </ul>
       <p class="ready-banner" id="readyBanner" aria-live="polite"></p>
       <label for="readyExplain">Explain your topic to a five-year-old
-        <span class="hint">A few plain sentences. If you can do this from memory, your baseline is solid.</span>
+        <span class="hint">A few simple sentences will do. Try to hit all six questions!</span>
       </label>
       <textarea id="readyExplain" rows="5" data-key="gs_ready_explain" placeholder="My topic is&hellip;"></textarea>
       <div class="btn-row">
@@ -434,7 +434,7 @@
   <!-- ============ FORMULATING A QUESTION ============ -->
   <section id="question">
     <h2>Formulating a Question</h2>
-    <p class="sec-sub">You're killin' me. (In the best way.)</p>
+    <p class="sec-sub">This is the part you'll hate now, but adore down the line.</p>
 
     <div class="panel">
       <h4>Research Problems</h4>
@@ -448,11 +448,26 @@
       <h4>Build a Research Problem</h4>
       <p>In 150&ndash;250 words, work through these five moves. The counter below tracks your length.</p>
       <ol class="steps">
-        <li><strong>Identify your topic.</strong></li>
-        <li><strong>Add context.</strong> What do you already know?</li>
-        <li><strong>Pick an issue.</strong> Describe a particular problem or debate.</li>
-        <li><strong>Consider the unknown.</strong> What further knowledge seems necessary?</li>
-        <li><strong>Prove relevance.</strong> Tell us why we should care.</li>
+        <li><strong>Identify your topic.</strong> <span class="step-note">One sentence.</span>
+          <label class="sr-only" for="prob1">Your topic</label>
+          <input type="text" id="prob1" data-key="gs_prob_1" placeholder="Name your topic&hellip;">
+        </li>
+        <li><strong>Add context.</strong> What do you already know? <span class="step-note">One or two sentences.</span>
+          <label class="sr-only" for="prob2">Context</label>
+          <textarea id="prob2" rows="2" data-key="gs_prob_2" placeholder="What you already know&hellip;"></textarea>
+        </li>
+        <li><strong>Pick an issue.</strong> Describe a particular problem or debate. <span class="step-note">One sentence.</span>
+          <label class="sr-only" for="prob3">The issue</label>
+          <input type="text" id="prob3" data-key="gs_prob_3" placeholder="The problem or debate&hellip;">
+        </li>
+        <li><strong>Consider the unknown.</strong> What further knowledge seems necessary? <span class="step-note">One sentence.</span>
+          <label class="sr-only" for="prob4">The unknown</label>
+          <input type="text" id="prob4" data-key="gs_prob_4" placeholder="What we still need to know&hellip;">
+        </li>
+        <li><strong>Prove relevance.</strong> Tell us why we should care. <span class="step-note">One sentence.</span>
+          <label class="sr-only" for="prob5">Relevance</label>
+          <input type="text" id="prob5" data-key="gs_prob_5" placeholder="Why it matters&hellip;">
+        </li>
       </ol>
       <label for="problemText">Your research problem
         <span class="hint">Aim for a single, well-developed paragraph.</span>
@@ -460,7 +475,7 @@
       <textarea id="problemText" rows="9" data-key="gs_problem" placeholder="Begin with your topic, then build toward relevance&hellip;"></textarea>
       <p style="margin:.6rem 0 0;">Word count: <span class="counter" id="problemCount" data-state="under">0</span> <span style="color:var(--ink-soft);">(target 150&ndash;250)</span></p>
       <div class="btn-row">
-        <button class="btn ghost" type="button" data-copy="problemText" data-labels="Research Problem">Copy my work</button>
+        <button class="btn ghost" type="button" data-copy="prob1,prob2,prob3,prob4,prob5,problemText" data-labels="Topic,Context,Issue,Unknown,Relevance,Full problem">Copy my work</button>
       </div>
       <p class="saved-note" id="problemNote"></p>
     </div>
@@ -529,6 +544,7 @@
     <div class="tool" id="questionTool">
       <span class="tool-tag">Try This</span>
       <h4>Draft Your Research Question</h4>
+      <p>Each step offers an opportunity for strategic revision. Work your question over as you proceed. Incremental improvements are the most sustainable sort!</p>
       <ol class="steps">
         <li><strong>Work from an initial question.</strong>
           <label class="sr-only" for="rqInitial">Initial question</label>
@@ -566,20 +582,17 @@
     </div>
   </section>
 
+  <div class="panel center" id="printPanel">
+    <h4>Print Your Work</h4>
+    <p>Save a copy of everything you have entered, or print a blank worksheet to complete by hand.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <button class="btn" type="button" id="printWork">Print my work</button>
+      <button class="btn ghost" type="button" id="printBlank">Print a blank worksheet</button>
+    </div>
+  </div>
+
 </div>
 </main>
-
-<footer>
-  <div class="footer-crest">
-    <svg class="crest" viewBox="0 0 500 500" role="img" aria-label="West Essex High School Library Media Center crest"><use href="#lmcCrest"></use></svg>
-    <p class="big">Happy Trails!</p>
-  </div>
-  <div class="footer-meta wrap">
-    <p>West Essex High School Library Lyceum &nbsp;|&nbsp; Research Basics: Getting Started &nbsp;|&nbsp; <a href="https://mistertlibrary.github.io/librarylyceum/databases.html" target="_blank" rel="noopener noreferrer">Find a Database</a></p>
-    <p>&copy; <span id="year"></span> West Essex High School</p>
-    <p style="margin-top:14px;"><button class="btn ghost" type="button" onclick="window.print()">Print / Save this guide as PDF</button></p>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -713,7 +726,20 @@
     });
   });
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  var pw = document.getElementById('printWork'), pb = document.getElementById('printBlank');
+  if(pw){ pw.addEventListener('click', function(){ window.print(); }); }
+  if(pb){ pb.addEventListener('click', function(){
+    var fields = [], checks = [];
+    document.querySelectorAll('[data-key]').forEach(function(f){
+      if(f.tagName === 'TEXTAREA' || f.tagName === 'INPUT'){ fields.push([f, f.value]); f.value = ''; }
+      else if(f.getAttribute('aria-pressed') === 'true'){ checks.push(f); f.setAttribute('aria-pressed','false'); }
+    });
+    updateCount(); updateReady(); updateGoals(); updateRq();
+    window.print();
+    fields.forEach(function(p){ p[0].value = p[1]; });
+    checks.forEach(function(b){ b.setAttribute('aria-pressed','true'); });
+    updateCount(); updateReady(); updateGoals(); updateRq();
+  }); }
 })();
 </script>
 </body>
