@@ -99,6 +99,7 @@
   .a11y-group{ margin-bottom:.85rem; }
   .glabel{ display:block; font-family:var(--mono); font-size:.74rem; text-transform:uppercase; letter-spacing:1px; color:var(--ink-soft); margin-bottom:.35rem; }
   .opts{ display:flex; gap:.4rem; }
+  .opts.stack{ flex-direction:column; }
   .opts button{
     flex:1; padding:.4rem .2rem; border:2px solid var(--ink); background:var(--card); color:var(--ink);
     border-radius:7px; cursor:pointer; font-family:var(--body); font-size:.86rem;
@@ -200,6 +201,14 @@
 
   .saved-note{ font-size:.82rem; color:var(--ink-soft); margin-top:.6rem; min-height:1.1em; }
 
+  /* ---------- Footer ---------- */
+  footer{ padding:0 0 70px; text-align:center; color:var(--ink-soft); }
+  .footer-crest{ background:var(--nav); color:var(--on-nav); padding:42px 24px 38px; border-bottom:3px solid var(--shadow-col); }
+  .footer-crest .crest{ height:54px; margin:0 auto 14px; }
+  .footer-crest p{ margin:0 0 .3rem; color:var(--on-nav); }
+  .footer-crest .big{ font-family:var(--display); font-size:1.8rem; font-weight:800; margin:.1rem 0 0; }
+  .footer-meta{ padding-top:26px; font-size:.86rem; }
+
 
   .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 
@@ -209,7 +218,7 @@
   }
   @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } *{ animation:none !important; transition:none !important; } }
   @media print{
-    nav,.a11y-toggle,.a11y-panel,.roadmap,.btn,.timer-row,.skip-link,#printPanel{ display:none !important; }
+    nav,.a11y-toggle,.a11y-panel,.roadmap,.btn,.timer-row,.skip-link,.footer-crest{ display:none !important; }
     :root{ --paper:#ffffff; --card:#ffffff; --ink:#000000; --ink-soft:#444444; --accent-soft:#ffffff; --line:#cccccc; --shadow-col:#cccccc; }
     body{ background:#fff; color:#000; background-image:none; }
     .panel,.card,.tool{ box-shadow:none; border-color:#000; }
@@ -258,6 +267,13 @@
       <button data-font="serif" aria-pressed="true">Serif</button>
       <button data-font="sans" aria-pressed="false">Sans</button>
       <button data-font="dys" aria-pressed="false" title="Dyslexia-friendly">Dys</button>
+    </div>
+  </div>
+  <div class="a11y-group">
+    <span class="glabel" id="lblWork">Worksheets</span>
+    <div class="opts stack" role="group" aria-labelledby="lblWork">
+      <button type="button" id="printWork">Print my work</button>
+      <button type="button" id="printBlank">Print blank copies</button>
     </div>
   </div>
 </div>
@@ -582,17 +598,19 @@
     </div>
   </section>
 
-  <div class="panel center" id="printPanel">
-    <h4>Print Your Work</h4>
-    <p>Save a copy of everything you have entered, or print a blank worksheet to complete by hand.</p>
-    <div class="btn-row" style="justify-content:center;">
-      <button class="btn" type="button" id="printWork">Print my work</button>
-      <button class="btn ghost" type="button" id="printBlank">Print a blank worksheet</button>
-    </div>
-  </div>
-
 </div>
 </main>
+
+<footer>
+  <div class="footer-crest">
+    <svg class="crest" viewBox="0 0 500 500" role="img" aria-label="West Essex High School Library Media Center crest"><use href="#lmcCrest"></use></svg>
+    <p>How do you hone your research skills?</p>
+    <p class="big">Practice, practice, practice!</p>
+  </div>
+  <div class="footer-meta wrap">
+    <p>West Essex High School Library Media Center</p>
+  </div>
+</footer>
 
 <script>
 (function(){
