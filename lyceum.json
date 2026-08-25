@@ -1,0 +1,34 @@
+{
+  "lyceum": 1,
+  "_note": "Generated for the Lyceum hub's unified search. Section titles are the guide's own headings. 'keywords' is optional and never displayed: it lets an evocative title stay evocative while remaining findable. Leave arrays empty until you have something to add.",
+  "title": "Research Basics: Getting Started",
+  "description": "A library research guide from West Essex: selecting a topic, choosing a database, preliminary research, and formulating a question.",
+  "url": "https://mistertlibrary.github.io/rbgettingstarted/",
+  "series": "Research Basics",
+  "course": "",
+  "subjects": [
+    "Basic Information and General Reference"
+  ],
+  "sections": [
+    {
+      "title": "Selecting a Topic",
+      "anchor": "#topic",
+      "keywords": []
+    },
+    {
+      "title": "Choosing a Database",
+      "anchor": "#database",
+      "keywords": []
+    },
+    {
+      "title": "Preliminary Research",
+      "anchor": "#preliminary",
+      "keywords": []
+    },
+    {
+      "title": "Formulating a Question",
+      "anchor": "#question",
+      "keywords": []
+    }
+  ]
+}
