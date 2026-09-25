@@ -13,22 +13,39 @@
     {
       "title": "Selecting a Topic",
       "anchor": "#topic",
-      "keywords": []
+      "keywords": [
+        "choosing a topic",
+        "narrowing a topic",
+        "what should i write about"
+      ]
     },
     {
       "title": "Choosing a Database",
       "anchor": "#database",
-      "keywords": []
+      "keywords": [
+        "which database",
+        "where to search",
+        "picking a source",
+        "subject databases"
+      ]
     },
     {
       "title": "Preliminary Research",
       "anchor": "#preliminary",
-      "keywords": []
+      "keywords": [
+        "background reading",
+        "exploratory",
+        "presearch"
+      ]
     },
     {
       "title": "Formulating a Question",
       "anchor": "#question",
-      "keywords": []
+      "keywords": [
+        "research question",
+        "inquiry question",
+        "focusing"
+      ]
     }
   ]
 }
